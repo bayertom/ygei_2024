@@ -1,0 +1,73 @@
+#Convert (deg, min, sec) to float
+deg = 10
+min = 4
+sec = 27
+angle = deg + min/60 + sec/3600
+print(angle)
+
+#Convert float to deg, min, sec
+d = int(angle)
+m = int((angle-d)*60)
+s = ((angle-d)*60-m)*60
+
+#Find minimum, maximum, X=[x1, , xn]
+def minmax(X):
+    xmin = X[0]
+    xmax = X[0] 
+
+    for x in X:
+        if x < xmin:
+            xmin = x
+            
+        if x > xmax:
+            xmax=x    
+    
+    return xmin,xmax
+
+#Find minimum, maximum, and their indices, X=[x1, ... , xn]
+
+def minmaxWithIndices(X):
+    xmin = X[0]
+    imin = 0
+    xmax = X[0] 
+    imax = 0
+    i = 0
+    for x in X:
+        
+        if x < xmin:
+            xmin = x
+            imin = i
+            
+        if x > xmax:
+            xmax=x   
+            imax = i 
+            
+        i += 1
+        
+    return xmin,xmax, imin, imax
+
+
+def minmaxWithIndices2(X):
+    xmin = X[0]
+    imin = 0
+    xmax = X[0] 
+    imax = 0
+
+    for i in range(len(X)):
+        
+        if X[i] < xmin:
+            xmin = X[i]
+            imin = i
+            
+        if X[i] > xmax:
+            xmax = X[i]   
+            imax = i 
+            
+    return xmin, xmax, imin, imax
+
+
+X= [3, 5, 4, -1, 19, 24]
+xmin,xmax = minmax(X)
+print(xmin, xmax)
+xmin,xmax,imin, imax = minmaxWithIndices2(X)
+print(xmin, xmax, imin, imax)
