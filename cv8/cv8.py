@@ -106,19 +106,6 @@ def find(u,P):
         u = P[u]
         
     return u
-
-def union(u,v,P):
-    #Union-Find
-    
-    #Find root node for u
-    root_u = find(u,P)
-    
-    #Find root node for v
-    root_v = find(v,P)
-    
-    #Union: connect rv to ru
-    if root_u != root_v:
-        P[root_v] = root_u
         
 def make_set(u,P):
     #Init all trees
