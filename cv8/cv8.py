@@ -123,10 +123,11 @@ def union(u,v,P):
         
     
 def make_set(u,P):
-    # init trees
+    #Init all trees
     P[u] = u
 
 def min_span_tree(V, E):
+    #MInimum spanning tree (Boruvka's method)
     T = []  # tree
     wt = 0  # line weight
     n = len(V)
@@ -141,13 +142,21 @@ def min_span_tree(V, E):
     
     #Process sorted edges
     for e in ES:
+        
+        #Get edge
         u, v, w = e
         
-        #Union find
-        if find(u,P) != find(v,P):
+        #Find root node for u
+        root_u = find(u,P)
+        
+        #Find root node for v
+        root_v = find(v,P)
+        
+        #Union
+        if root_u != root_v:
             
-            #Create union
-            union(u,v,P)
+            #Connect rv to ru
+            P[root_v] = root_u
             
             #Add e to T
             T.append(e)
@@ -164,7 +173,7 @@ P, dmin = dijkstra(G,1,9)
 path = rec(1, 9, P)
 print(path, dmin)
 
-#Boruvka
+#Boruvka MST
 T, wt = min_span_tree(V, E)
 print(T, wt)
 
