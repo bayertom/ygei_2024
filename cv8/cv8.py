@@ -120,8 +120,6 @@ def union(u,v,P):
     if root_u != root_v:
         P[root_v] = root_u
         
-        
-    
 def make_set(u,P):
     #Init all trees
     P[u] = u
