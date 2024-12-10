@@ -133,7 +133,7 @@ n = len(X)
 n_bin = n**(1/3)
 n_r = int(n_bin**(1/3))
 print(n_r)
-n_r = 2
+n_r = 25
 
 #Initialize 3D index
 xmin, ymin, zmin, dx, dy, dz, bx, by, bz = initIndex(X, Y, Z, n_r)
